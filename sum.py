@@ -1,9 +1,17 @@
-file = open("sum.txt", "r")
+import os
 
-num_str = file.read()
+folder_path = r'inputs'
+file_extension = '.txt'
 
-number = [float(num) for num in num_str.split()]
+files = [file for file in os.listdir(folder_path) if file.endswith(file_extension)]
 
-print(sum(number))
+total_sum = 0
 
-#  12 45 8 24 57 10 44 11 79 51 
+for file_name in files:
+    file_path = os.path.join(folder_path, file_name)
+    with open(file_path, 'r') as file:
+        num_str = file.read()
+        numbers = [float(num) for num in num_str.split()]
+        total_sum += sum(numbers)
+
+print(total_sum)
