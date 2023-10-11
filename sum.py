@@ -8,4 +8,3 @@ numbers = [
 
 print(sum(numbers))
 
-print("up your eyes to end your life")
